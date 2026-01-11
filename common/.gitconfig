@@ -1,0 +1,12 @@
+[user]
+	name = Yusuke Koseki / 小関 右介
+	email = 104213744+YSKoseki@users.noreply.github.com
+[core]
+	excludesfile = /Users/yusuke/.gitignore_global
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
