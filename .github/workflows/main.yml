@@ -12,7 +12,7 @@ jobs:
 
     defaults:
       run:
-        shell: bash -euxo pipefail
+        shell: bash
 
     steps:
       - uses: actions/checkout@v4
@@ -20,6 +20,7 @@ jobs:
       # Optional: show environment info
       - name: Show macOS environment
         run: |
+          set -euxo pipefail
           sw_vers
           uname -a
           xcode-select -p || true
