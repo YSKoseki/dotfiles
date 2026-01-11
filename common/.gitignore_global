@@ -1,16 +1,15 @@
-# ====================
-# MacOS
-# ====================
-
-# General
+# =========================
+#  MacOS
+# =========================
+# Ignore macOS system files
 .DS_Store
 .AppleDouble
 .LSOverride
 
-# Thumbnails
+# Ignore Thumbnails
 ._*
 
-# Files that might appear in the root of a volume
+# Ignore files that might appear in the root of a volume
 .DocumentRevisions-V100
 .fseventsd
 .Spotlight-V100
@@ -19,7 +18,7 @@
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
 
-# Directories potentially created on remote AFP share
+# Ignore directories potentially created on remote AFP share
 .AppleDB
 .AppleDesktop
 Network Trash Folder
