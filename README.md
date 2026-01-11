@@ -37,6 +37,6 @@ make gh
 
 4. References
 
-[Macの環境をdotfilesでセットアップしてみた改](https://zenn.dev/tsukuboshi/articles/6e82aef942d9af)
-[Homebrew を dotfiles で管理する際にやったこと](https://egashira.dev/blog/manage-homebrew-with-dotfiles)
-[初心者向け,PCの環境をdotfilesで一瞬で構築する方法(mac)](https://qiita.com/kez/items/e349a8d025acbcdc3a86)
+- [Macの環境をdotfilesでセットアップしてみた改](https://zenn.dev/tsukuboshi/articles/6e82aef942d9af)
+- [Homebrew を dotfiles で管理する際にやったこと](https://egashira.dev/blog/manage-homebrew-with-dotfiles)
+- [初心者向け,PCの環境をdotfilesで一瞬で構築する方法(mac)](https://qiita.com/kez/items/e349a8d025acbcdc3a86)
