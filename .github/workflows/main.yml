@@ -1,0 +1,40 @@
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  make:
+    runs-on: macos-latest
+
+    defaults:
+      run:
+        shell: bash -euxo pipefail
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show macOS environment
+        run: |
+          sw_vers
+          uname -a
+          xcode-select -p || true
+
+      - name: Run xcode setup
+        run: make xcode
+
+      - name: Link dotfiles
+        run: make link
+
+      - name: Apply macOS defaults
+        run: make defaults
+
+      - name: Install Homebrew packages
+        run: make brew
+
+      - name: Install gh extensions
+        run: make gh
