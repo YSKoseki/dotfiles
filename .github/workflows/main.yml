@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 jobs:
-  make:
+  setup:
     runs-on: macos-latest
 
     defaults:
@@ -15,26 +15,15 @@ jobs:
         shell: bash -euxo pipefail
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
+      # Optional: show environment info
       - name: Show macOS environment
         run: |
           sw_vers
           uname -a
           xcode-select -p || true
 
-      - name: Run xcode setup
-        run: make xcode
-
-      - name: Link dotfiles
-        run: make link
-
-      - name: Apply macOS defaults
-        run: make defaults
-
-      - name: Install Homebrew packages
-        run: make brew
-
-      - name: Install gh extensions
-        run: make gh
+      # Run full macOS setup in order
+      - name: Initialize macOS
+        run: make all
