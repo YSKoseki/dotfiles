@@ -1,8 +1,12 @@
 #!/bin/bash
 
+# Exit immediately if a command fails, treat unset variables as errors, and fail on pipe errors
 set -Eeuo pipefail
+
+# Print a message with the script name and line number if any command fails
 trap 'echo "❌ FAILED: ${BASH_SOURCE[0]} at line $LINENO"' ERR
 
+# Print header for macOS default settings
 printf "\n\033[1;36m=== Applying macOS default settings ===\033[0m\n"
 
 # Array to store failed items
