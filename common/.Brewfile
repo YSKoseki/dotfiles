@@ -91,7 +91,7 @@ unless ENV["CI"]
   mas "GoPro Player", id: 1460836908
   mas "GoPro Quik", id: 561350520
   # mas "Keynote", id: 409183694
-  mas "LadioCast", id: 411213048
+  # mas "LadioCast", id: 411213048
   mas "LINE", id: 539883307
   mas "Microsoft Excel", id: 462058435
   mas "Microsoft PowerPoint", id: 462062816
