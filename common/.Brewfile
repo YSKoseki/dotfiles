@@ -1,9 +1,7 @@
 # Set default install location for cask apps
 cask_args appdir: "/Applications"
 
-# =========================
 # CLI Tools (brew)
-# =========================
 brew "aria2"
 brew "autoconf"
 brew "automake"
@@ -22,6 +20,7 @@ brew "grep"
 brew "gzip"
 brew "imagemagick"
 brew "make"
+brew "mas"
 brew "pbzip2"
 brew "pigz"
 brew "readline"
@@ -34,12 +33,7 @@ brew "unzip"
 brew "wget"
 brew "xz"
 
-# mas は CI ではスキップ
-brew "mas" unless ENV["CI"]
-
-# =========================
 # Libraries (brew)
-# =========================
 brew "cairo"
 brew "gettext"
 brew "jpeg"
@@ -55,9 +49,7 @@ brew "pcre2"
 brew "pkgconf"
 brew "zlib"
 
-# =========================
 # GUI Apps (cask)
-# =========================
 cask "appcleaner"
 cask "bettertouchtool"
 cask "blackhole-16ch"
@@ -88,9 +80,8 @@ cask "visual-studio-code"
 cask "zoom"
 cask "zotero"
 
-# =========================
 # Mac App Store Apps (mas)
-# CI では実行しない
+# Skipped in CI environments (requires App Store login)
 unless ENV["CI"]
   mas "Apple Configurator", id: 1037126344
   mas "Blackmagic Disk Speed Test", id: 425264550
