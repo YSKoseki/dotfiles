@@ -1,55 +1,80 @@
 .PHONY: all xcode link defaults brew gh
 
-# Initialize macOS.
-all:
-	@echo "\033[1;36m▶▶ Initialize macOS\033[0m"
-	@$(MAKE) xcode
-	@$(MAKE) link
-	@$(MAKE) defaults
-	@$(MAKE) brew
-	@$(MAKE) gh
+# Use bash explicitly for all commands (GitHub Actions compatible)
+SHELL := /bin/bash
 
-HEADER = \
-	printf "\n\033[1;34m========================================\033[0m\n"; \
-	printf "\033[1;34m  Run %s\033[0m\n"; \
-	printf "\033[1;34m========================================\033[0m\n";
-	
-# Install xcode.
+# =========================
+# Main target
+# =========================
+all: xcode link defaults brew gh
+	@echo "\033[1;36m▶▶ macOS initialization complete\033[0m"
+
+# =========================
+# Header / Footer function
+# =========================
+define HEADER
+printf "\n\033[1;34m========================================\033[0m\n"
+printf "\033[1;34m  [START] $1\033[0m\n"
+printf "\033[1;34m========================================\033[0m\n"
+endef
+
+define FOOTER
+printf "\033[1;34m========================================\033[0m\n"
+printf "\033[1;34m  [DONE] $1\033[0m\n"
+printf "\033[1;34m========================================\033[0m\n"
+endef
+
+# =========================
+# Install Xcode CLI
+# =========================
 xcode:
-	@$(HEADER) "xcode.sh"
-	@common/xcode.sh || { \
+	@$(call HEADER,xcode.sh)
+	@bash common/xcode.sh || { \
 		echo "\033[1;31m❌ FAILED: common/xcode.sh\033[0m"; \
 		exit 1; \
 	}
-	
-# Link common dotfiles.
+	@$(call FOOTER,xcode.sh)
+
+# =========================
+# Link dotfiles
+# =========================
 link:
-	@$(HEADER) "link.sh"
-	@common/link.sh || { \
+	@$(call HEADER,link.sh)
+	@bash common/link.sh || { \
 		echo "\033[1;31m❌ FAILED: common/link.sh\033[0m"; \
 		exit 1; \
 	}
+	@$(call FOOTER,link.sh)
 
-# Set macOS system preferences.
+# =========================
+# Apply macOS defaults
+# =========================
 defaults:
-	@$(HEADER) "defaults.sh"
-	@common/defaults.sh || { \
+	@$(call HEADER,defaults.sh)
+	@bash common/defaults.sh || { \
 		echo "\033[1;31m❌ FAILED: common/defaults.sh\033[0m"; \
 		exit 1; \
 	}
+	@$(call FOOTER,defaults.sh)
 
-# Install applications using Homebrew.
+# =========================
+# Install Homebrew apps
+# =========================
 brew:
-	@$(HEADER) "brew.sh"
-	@common/brew.sh || { \
+	@$(call HEADER,brew.sh)
+	@bash common/brew.sh || { \
 		echo "\033[1;31m❌ FAILED: common/brew.sh\033[0m"; \
 		exit 1; \
 	}
+	@$(call FOOTER,brew.sh)
 
-# Install gh extensions.
+# =========================
+# Install GitHub CLI extensions
+# =========================
 gh:
-	@$(HEADER) "gh.sh"
-	@common/gh.sh || { \
+	@$(call HEADER,gh.sh)
+	@bash common/gh.sh || { \
 		echo "\033[1;31m❌ FAILED: common/gh.sh\033[0m"; \
 		exit 1; \
 	}
+	@$(call FOOTER,gh.sh)
