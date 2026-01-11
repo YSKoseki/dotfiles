@@ -30,7 +30,7 @@ endef
 xcode:
 	@$(call HEADER,xcode.sh)
 	@bash common/xcode.sh || { \
-		echo "\033[1;31m❌ FAILED: common/xcode.sh\033[0m"; \
+		echo "\033[1;31m❌ FAILED: common/xcode.sh\033[0m\n"; \
 		exit 1; \
 	}
 	@$(call FOOTER,xcode.sh)
@@ -41,7 +41,7 @@ xcode:
 link:
 	@$(call HEADER,link.sh)
 	@bash common/link.sh || { \
-		echo "\033[1;31m❌ FAILED: common/link.sh\033[0m"; \
+		echo "\033[1;31m❌ FAILED: common/link.sh\033[0m\n"; \
 		exit 1; \
 	}
 	@$(call FOOTER,link.sh)
@@ -52,7 +52,7 @@ link:
 defaults:
 	@$(call HEADER,defaults.sh)
 	@bash common/defaults.sh || { \
-		echo "\033[1;31m❌ FAILED: common/defaults.sh\033[0m"; \
+		echo "\033[1;31m❌ FAILED: common/defaults.sh\033[0m\n"; \
 		exit 1; \
 	}
 	@$(call FOOTER,defaults.sh)
@@ -63,7 +63,7 @@ defaults:
 brew:
 	@$(call HEADER,brew.sh)
 	@bash common/brew.sh || { \
-		echo "\033[1;31m❌ FAILED: common/brew.sh\033[0m"; \
+		echo "\033[1;31m❌ FAILED: common/brew.sh\033[0m\n"; \
 		exit 1; \
 	}
 	@$(call FOOTER,brew.sh)
@@ -74,7 +74,7 @@ brew:
 gh:
 	@$(call HEADER,gh.sh)
 	@bash common/gh.sh || { \
-		echo "\033[1;31m❌ FAILED: common/gh.sh\033[0m"; \
+		echo "\033[1;31m❌ FAILED: common/gh.sh\033[0m\n"; \
 		exit 1; \
 	}
 	@$(call FOOTER,gh.sh)
