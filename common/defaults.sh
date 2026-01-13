@@ -30,7 +30,7 @@ print_result "Set Dock animation speed to fastest" defaults write com.apple.dock
 print_result "Set Dock auto-hide delay to minimum" defaults write com.apple.dock autohide-delay -int 0
 print_result "Set Dock window minimization effect to scale" defaults write com.apple.dock mineffect -string "scale"
 print_result "Disable Trash empty warning in Finder" defaults write com.apple.finder WarnOnEmptyTrash -bool false
-print_result "Show full POSIX path in Finder window title" defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+#print_result "Show full POSIX path in Finder window title" defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 print_result "Show Finder status bar" defaults write com.apple.finder ShowStatusBar -bool true
 print_result "Show ~/Library folder in Finder" chflags nohidden ~/Library
 print_result "Reduce initial key repeat delay" defaults write -g InitialKeyRepeat -int 25
