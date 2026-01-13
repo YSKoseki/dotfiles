@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Exit immediately if a command fails, treat unset variables as errors, and fail on pipe errors
 set -Eeuo pipefail
